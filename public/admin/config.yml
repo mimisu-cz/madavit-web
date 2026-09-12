@@ -1,0 +1,45 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Stránky"
+    folder: "src/content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "gallery"
+    label: "Galéria"
+    folder: "src/content/gallery"
+    create: true
+    fields:
+      - {label: "Názov", name: "title", widget: "string"}
+      - {label: "Popis", name: "description", widget: "text"}
+      - {label: "Obrázok", name: "image", widget: "image"}
+      - {label: "Kategória", name: "category", widget: "select", options: ["Nábytok", "Ploty", "Konštrukcie"]}
+
+  - name: "reviews"
+    label: "Recenzie"
+    folder: "src/content/reviews"
+    create: true
+    fields:
+      - {label: "Meno", name: "name", widget: "string"}
+      - {label: "Recenzia", name: "text", widget: "text"}
+      - {label: "Hodnotenie", name: "rating", widget: "number", min: 1, max: 5}
+      - {label: "Dátum", name: "date", widget: "date"}
+
+  - name: "faq"
+    label: "FAQ"
+    folder: "src/content/faq"
+    create: true
+    fields:
+      - {label: "Otázka", name: "question", widget: "string"}
+      - {label: "Odpoveď", name: "answer", widget: "markdown"}
